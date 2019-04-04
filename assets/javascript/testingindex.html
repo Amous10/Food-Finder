@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">    
+
+    <title>Foodie Finder</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-dark justify-content-left">
+        
+        <form class="form-inline">
+          <input class="form-control mr-sm-2 text-dark" type="search" placeholder="i.e. Gilbert, AZ" aria-label="Search" id="search-city-input">
+          <button id="search-city-btn" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search Zomato City</button>
+        </form>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2 text-dark" type="search" placeholder="Returns All Cuisines in PHX" aria-label="Search" id="search-cuisine-input">
+          <button id="search-cuisine-btn" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search Cuisines in PHX</button>
+        </form>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2 text-dark" type="search" placeholder="i.e. Subway" aria-label="Search" id="search-restaurants-input">
+          <button id="search-restaurants-btn" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search Restaurants in PHX</button>
+        </form>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2 text-dark" type="search" placeholder="i.e. Unknown" aria-label="Search" id="search-google-city-input">
+          <button id="search-google-city-btn" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search Google City</button>
+        </form>
+      </nav>
+    </header>   
+    
+    <div class="container mt-5">
+    
+      <div class="row p-2">
+        <!-- style="border: 1px solid #d2d2d2;"-->
+        <div class="col p-4">
+          <div id="results-view"></div>
+          <div id="map"></div>          
+        </div>
+      </div>
+    
+    </div>   
+    <!--container-->
+  
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDti1uIIpl2e51oCM6_AqZYYZWma_wn-2k&callback=initMap">
+    </script>   
+    <!-- <script type="text/javascript" src="js/gmaps.js"></script>  -->
+    <script type="text/javascript" src="js/zomato.js"></script>
+    <script type="text/javascript" src="js/gmaps.js"></script> 
+  </body>
+</html>
