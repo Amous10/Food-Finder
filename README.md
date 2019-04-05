@@ -24,4 +24,4 @@ Kevin
 
 ```
 ## Link to Portfolio
-[GITHUB Live Link](https://Amout10.github.io/Food-Finder/)
+[GITHUB Live Link](https://Amous10.github.io/Food-Finder/)
