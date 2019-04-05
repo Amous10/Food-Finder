@@ -1,3 +1,7 @@
+body{
+    background-image: url("file:///Users/amous/bootcamp/homework/Food-Finder/assets/images/44423-restos.jpg");
+}
+
 #city-search.uk-search{
     background-color: rgba(255, 255, 255, 0.3);
     color: black;
