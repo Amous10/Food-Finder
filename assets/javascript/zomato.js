@@ -113,6 +113,7 @@ $(document).ready(function () {
     let div = `
     <div>
     <div class="uk-card uk-card-default">
+ 
       <div class="uk-card-media-top">
         <div class="uk-card-badge uk-label-warning">${userRating}</div>
           <h3 class="uk-card-title">${name}</h3>
