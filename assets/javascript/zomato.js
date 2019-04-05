@@ -13,6 +13,7 @@ $(document).ready(function () {
   ];
 
   var loading = false;
+  const defaultImg = 'assets/images/food_thumb.jpg';
   const baseURL = 'https://developers.zomato.com/api/v2.1/';
   let q = '';
   let cityArgs = 'cities?q=';  
@@ -57,7 +58,7 @@ $(document).ready(function () {
             loading = false;
             //MAKE MAGIC HAPPEN:
             let resultsFound = secondResponse.results_found;
-
+            $('#results-view').html('');
             if (resultsFound == 0) {
               //TODO result found is ZERO, do something. 
             }
@@ -78,28 +79,20 @@ $(document).ready(function () {
                 let latitude = r.location.latitude;
                 let longitude = r.location.longitude;
                 let imgsrc = r.thumb;
-                let cuisine = r.cuisine;
-                let userRating = r.user_rating;
-                let phoneNumber = r.phone_numbers;
+                let cuisines = r.cuisines;
+                let userRating = r.user_rating.aggregate_rating;
+                let avgCostForTwo = r.average_cost_for_two;                
                 
-                console.log(name);
-                //TODO create the cards
+                if (imgsrc === ''){                  
+                  imgsrc = defaultImg;
+                }
 
+                //TODO style the cards                
+                let addDiv = createDivs(name, latitude, longitude, imgsrc, cuisines, userRating, avgCostForTwo);                
+                
+                $('#results-view').prepend(addDiv);             
 
               }
-              
-              // $('#results-view').html(restaurants);
-              // console.log(restaurants);
-              //     <div class="uk-card uk-card-default">
-              //     <div class="uk-card-media-top">
-              //         <img src="images/light.jpg" alt="">
-              //     </div>
-              //     <div class="uk-card-body">
-              //         <h3 class="uk-card-title">Media Top</h3>
-              //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-              //     </div>
-              // </div>
-
             }
           })
       });
@@ -114,12 +107,25 @@ $(document).ready(function () {
     searchCity(q);
   }
 
-  function searchZomatoCuisine() {
-
-    // Preventing the button from trying to submit the form
-    event.preventDefault();
-    q = $('#search-cuisine-input').val().trim();
-    searchCuisine(q);
+  
+  function createDivs(name, latitude, longitude, imgsrc, cuisines, userRating, avgCostForTwo) {
+ 
+    let div = `
+    <div>
+    <div class="uk-card uk-card-default">
+      <div class="uk-card-media-top">
+        <div class="uk-card-badge uk-label-warning">${userRating}</div>
+          <h3 class="uk-card-title">${name}</h3>
+        <img src="${imgsrc}" alt="${name}">
+      </div>
+      <div class="uk-card-body">
+        <h5 class="uk-card-title">${cuisines}</h5>        
+        <p>Avg cost for two: \$${avgCostForTwo}</p>
+      </div>
+    </div>
+  </div>
+    `;
+    return div;
   }
 
   function pickCuisine() {
