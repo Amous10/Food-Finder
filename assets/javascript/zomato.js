@@ -121,10 +121,25 @@ $(document).ready(function () {
       <div class="uk-card-body">
         <h5 class="uk-card-title">${cuisines}</h5>        
         <p>Avg cost for two: \$${avgCostForTwo}</p>
+
+
+        <button uk-toggle="target: #open-map" type="button">Map</button>
+
+        <!-- This is the modal -->
+        <div id="open-map" uk-modal>
+            <div class="uk-modal-dialog uk-margin-auto-vertical uk-modal-body">
+                <h2 class="uk-modal-title"></h2>
+                <button class="uk-modal-close" type="button">Close</button>
+            </div>
+        </div>
+
+
+
       </div>
     </div>
   </div>
     `;
+
     return div;
   }
 
@@ -135,13 +150,24 @@ $(document).ready(function () {
   }
 
   function mapModal(){
-    event.preventDefault();
+    // event.preventDefault();
     alert(map);
 
   }
 
   $(document).on('click', '.cuisine-btn', pickCuisine);
   $(document).on('click', '#search-city-btn', searchZomatoCity);
-  $(document).on('click', '#restaurant-card', mapModal);
 
-});
+  
+  });
+  
+
+
+
+
+
+
+
+
+
+    
