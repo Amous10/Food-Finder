@@ -113,7 +113,6 @@ $(document).ready(function () {
     let div = `
     <div>
     <div class="uk-card uk-card-default">
- 
       <div class="uk-card-media-top">
         <div class="uk-card-badge uk-label-warning">${userRating}</div>
           <h3 class="uk-card-title">${name}</h3>
@@ -135,7 +134,14 @@ $(document).ready(function () {
     $('#cuisine-text').text($(this).text());
   }
 
+  function mapModal(){
+    event.preventDefault();
+    alert(map);
+
+  }
+
   $(document).on('click', '.cuisine-btn', pickCuisine);
   $(document).on('click', '#search-city-btn', searchZomatoCity);
+  $(document).on('click', '#restaurant-card', mapModal);
 
 });
