@@ -12,7 +12,7 @@ $(document).ready(function () {
     {"cuisine_id":82,"cuisine_name":"Pizza"}
   ];
 
-  var loading = false;
+  // var loading = false;
   $('#spinner').hide();
   $('#map').hide();
   const defaultImg = 'assets/images/food_thumb.jpg';
@@ -28,7 +28,7 @@ $(document).ready(function () {
   // curl -X GET --header "Accept: application/json" --header "user-key: 100f8418181c52c8e7bd4b83d06f6750" "https://developers.zomato.com/api/v2.1/cities?q=phoenix"
   function searchCity(query) {
     //TODO Add a loading feature to accommodate chained ajax calls.
-    loading = true;   
+    // loading = true;   
     $('#spinner').show();
     $('#results-view').empty();
     
@@ -68,7 +68,7 @@ $(document).ready(function () {
         })
           .then(function (secondResponse) {
             // $('#results-view').html(JSON.stringify(response));          
-            loading = false;
+            // loading = false;
             $('#spinner').hide();
             //MAKE MAGIC HAPPEN:
             let resultsFound = secondResponse.results_found;
