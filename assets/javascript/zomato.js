@@ -116,7 +116,9 @@ $(document).ready(function () {
     // Preventing the button from trying to submit the form
     event.preventDefault();
     q = $('#search-city-input').val().trim();
-    $('#search-city-input').text('Near:  Search by City');    
+    // $('#search-city-input').attr('data-uk-clear');    
+    $('#search-city-input').html('Near:  Search by City');    
+    
     searchCity(q);
   }
 
