@@ -14,6 +14,7 @@ $(document).ready(function () {
 
   var loading = false;
   $('#spinner').hide();
+  $('#map').hide();
   const defaultImg = 'assets/images/food_thumb.jpg';
   const baseURL = 'https://developers.zomato.com/api/v2.1/';
   let q = '';
@@ -121,7 +122,7 @@ $(document).ready(function () {
     
     let div = `
     <div>
-    <div class="uk-card uk-card-default restaurant-card">
+    <div class="uk-card uk-card-default restaurant-card" data-id="${id}" data-lat="${latitude}" data-long="${longitude}">
     <a href="#modal-sections-${id}" uk-toggle>
       <div class="uk-card-media-top">
         <div class="uk-card-badge uk-label-warning">${userRating}</div>
@@ -147,7 +148,7 @@ $(document).ready(function () {
         <div class="uk-modal-body">
         <!-- -->    
         <div class="uk-child-width-1-2@s" uk-grid>
-        <div>Google Maps</div>
+        <div id="map${id}"></div>
     <div class="uk-card uk-card-default">    
       <div class="uk-card-media-top">
         <div class="uk-card-badge uk-label-warning">${userRating}</div>
@@ -170,15 +171,25 @@ $(document).ready(function () {
     </div>
 </div>
     `;
+    
+    
 
     return div;
   }
   
-  function populateRecent(){
-console.log('populate');
-
+  function populateRecent() {
+    console.log("populate");
   }
 
+  function appendMap() {
+    let tmp = $(this).attr('data-id');
+    let lat = $(this).attr('data-lat');
+    let long = $(this).attr('data-long');
+    // rMap(lat,long);
+    $('#map').show();
+    $('#map').appendTo($(`#map${tmp}`));
+    console.log(tmp);
+  }
 
   function pickCuisine() {
     // Preventing the button from trying to submit the form   
@@ -194,6 +205,8 @@ console.log('populate');
   $(document).on('click', '.cuisine-btn', pickCuisine);
   $(document).on('click', '#search-city-btn', searchZomatoCity);
   $(document).on('click', '#city', populateRecent);
+  $(document).on('click', '.restaurant-card', appendMap);
+  
 
   
   });
