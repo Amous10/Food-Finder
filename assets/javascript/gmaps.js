@@ -1,4 +1,4 @@
-
+var map;
 $(document).ready(function () {
 
 const pinDrop = 'assets/images/food_thumb.jpg';
@@ -10,13 +10,41 @@ initMap = function() {
   rMap(latitude,longitude);
 }
 
+
+
 let rMap = function(latitude, longitude) {
-  var map = new google.maps.Map($('#map')[0], {  
-    zoom: 13,
-    center: {lat: latitude, lng: longitude}
-  });  
-  setMarkers(map, latitude, longitude);  
+  var mapOptions = {
+    center: new google.maps.LatLng(latitude, longitude),
+    zoom: 13
+};
+  map = new google.maps.Map($('#map')[0], 
+  mapOptions);
+  // setMarkers(map, latitude, longitude);
+  moveToLocation(latitude, longitude);
 }
+function moveToLocation(lat, lng){
+  var center = new google.maps.LatLng(lat, lng);
+  // TODO maybe use global variable, map?  
+  map.setCenter(center);
+  setMarkers(map, lat, lng);
+}
+
+// initMap = function() {  
+//   rMap(latitude,longitude);
+// }
+
+// let rMap = function(latitude, longitude) {
+//   var map = new google.maps.Map($('#map')[0], {  
+//     zoom: 13,
+//     center: {lat: latitude, lng: longitude}
+//   }); 
+//   // setCoords(latitude, longitude); 
+//   setCoords(100, 100); 
+//   setMarkers(map, latitude, longitude);  
+// }
+// function setCoords(latitude, longitude) {
+//   map.center = {lat: latitude, lng: longitude};
+// }
 
 function setMarkers(map, lat, long) {
   // Adds markers to the map.

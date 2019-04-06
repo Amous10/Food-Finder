@@ -185,10 +185,9 @@ $(document).ready(function () {
     let tmp = $(this).attr('data-id');
     let lat = $(this).attr('data-lat');
     let long = $(this).attr('data-long');
-    // rMap(lat,long);
+    // moveToLocation(lat, long);
     $('#map').show();
     $('#map').appendTo($(`#map${tmp}`));
-    console.log(tmp);
   }
 
   function pickCuisine() {
