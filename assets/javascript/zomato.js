@@ -30,6 +30,8 @@ $(document).ready(function () {
     //TODO Add a loading feature to accommodate chained ajax calls.
     loading = true;   
     $('#spinner').show();
+    $('#results-view').empty();
+    
     let queryURL = `${baseURL}${cityArgs}${query}`;
     let cuisineBtnText = $('#cuisine-text').text();
     let cuisineID = '';
@@ -185,7 +187,7 @@ $(document).ready(function () {
     let tmp = $(this).attr('data-id');
     let lat = $(this).attr('data-lat');
     let long = $(this).attr('data-long');
-    // moveToLocation(lat, long);
+    moveToLocation(lat, long);
     $('#map').show();
     $('#map').appendTo($(`#map${tmp}`));
   }
