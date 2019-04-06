@@ -82,7 +82,7 @@ $(document).ready(function () {
               for (const restaurant of secondResponse.restaurants) {
                 // variables for the query responses we want
                 let r = restaurant.restaurant;
-                let id = restaurant.id;
+                let id = r.id;
                 let name = r.name;                
                 let latitude = r.location.latitude;
                 let longitude = r.location.longitude;
@@ -93,10 +93,10 @@ $(document).ready(function () {
                 
                 if (imgsrc === ''){                  
                   imgsrc = defaultImg;
-                }
-
+                }   
+                
                 //TODO style the cards                
-                let addDiv = createRestaurantCardDiv(name, imgsrc, cuisines, userRating, avgCostForTwo);                
+                let addDiv = createRestaurantCardDiv(id, name, imgsrc, cuisines, userRating, avgCostForTwo, latitude, longitude);                
                 
                 $('#results-view').prepend(addDiv);             
 
@@ -117,11 +117,12 @@ $(document).ready(function () {
     searchCity(q);
   }
 
-  function createRestaurantCardDiv(name, imgsrc, cuisines, userRating, avgCostForTwo) {
- 
+  function createRestaurantCardDiv(id, name, imgsrc, cuisines, userRating, avgCostForTwo, latitude, longitude) {
+    
     let div = `
     <div>
     <div class="uk-card uk-card-default restaurant-card">
+    <a href="#modal-sections-${id}" uk-toggle>
       <div class="uk-card-media-top">
         <div class="uk-card-badge uk-label-warning">${userRating}</div>
           <h3 class="uk-card-title">${name}</h3>
@@ -131,14 +132,50 @@ $(document).ready(function () {
         <h5 class="uk-card-title">${cuisines}</h5>        
         <p>Avg cost for two: \$${avgCostForTwo}</p>
       </div>
+    </a>
     </div>
   </div>
+  
+
+<div id="modal-sections-${id}" uk-modal>
+    
+    <div class="r-modal uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header r-modal-header">
+            <h2 class="uk-modal-title">${name}</h2>
+        </div>
+        <div class="uk-modal-body">
+        <!-- -->    
+        <div class="uk-child-width-1-2@s" uk-grid>
+        <div>Google Maps</div>
+    <div class="uk-card uk-card-default">    
+      <div class="uk-card-media-top">
+        <div class="uk-card-badge uk-label-warning">${userRating}</div>
+          <h3 class="uk-card-title">${name}</h3>
+        <img src="${imgsrc}" alt="${name}">
+      </div>
+      <div class="uk-card-body">
+        <h5 class="uk-card-title">${cuisines}</h5>        
+        <p>Avg cost for two: \$${avgCostForTwo}</p>
+      </div>    
+    </div>
+  </div>
+        <!-- -->
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+            
+        </div>
+    
+    </div>
+</div>
     `;
 
     return div;
   }
   
   function populateRecent(){
+console.log('populate');
 
   }
 
