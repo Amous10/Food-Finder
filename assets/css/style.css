@@ -1,5 +1,10 @@
 body{
-    background-image: url(../images/44423-restos.jpg);
+    background: url(../images/44423-restos.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 }
 
 #city-search.uk-search{
@@ -29,4 +34,20 @@ body{
 
 .uk-logo img {
     height: 28px;
+}
+
+.margin-top{
+    margin-top: 2em;
+}
+.recent-header {
+    font-size: 1.05em;
+    font-weight: 300;
+    color: #310802;    
+    border: solid 1px white;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+/* TODO STYLE THE CARDS */
+.restaurant-card {
+    cursor: pointer;
+    border: solid 1px #005312;
 }
