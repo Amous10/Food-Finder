@@ -13,9 +13,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Acme|Cinzel|Crimson+Text|Hanalei+Fill|Indie+Flower|Permanent+Marker" rel="stylesheet">
 </head>
 
-
-<!-- <body	class="uk-light wrap uk-background-norepeat uk-background-cover uk-background-center-center uk-background-primary"> -->
-<body	class="uk-light wrap">
+<body class="uk-light wrap">
 
 	<div class="uk-flex uk-flex-center uk-flex-middle  uk-position-z-index uk-position-relative"
 		data-uk-height-viewport="min-height: 400">
@@ -53,43 +51,52 @@
 					<li class="cuisine-btn"><a href="#">Thai</a></li>
 					<li class="cuisine-btn"><a href="#">Pizza</a></li>
 				</ul>
-				
-			</div>			
-			
-						<form class="uk-width-1-3 uk-search uk-search-default" id="city-search">
-								<span class="uk-search-icon-flip" uk-search-icon></span>
-								<input class="uk-search-input" id="search-city-input" type="search" placeholder="Near:  Search by City">
-						</form>
-						
-			<button class="uk-button uk-button-default" type="button" id="search-city-btn">Search</button>
 
+			</div>
 
+			<form class="uk-width-1-3 uk-search uk-search-default" id="city-search">
+				<span class="uk-search-icon-flip" uk-search-icon></span>
+				<input class="uk-search-input" id="search-city-input" type="search" placeholder="Near:  Search by City">
+			</form>
+
+			<button class="uk-button uk-button-primary" type="button" id="search-city-btn">Search</button>
 
 			<div class="margin-top" id="FFC">
 				<div id="results-view" class="uk-child-width-1-3@s" uk-grid></div>
-        <div></div>
-		<div id="spinner"><img src="./assets/images/loader-food.gif"></div>
-		<div class="recent-header">Recently Viewed</div>
-				<div id="recent-view" class="uk-child-width-1-3@s" uk-grid></div>
+
+				<div></div>
+				<div id="spinner"><img src="./assets/images/loader-food.gif"></div>
+				<div id="recent-view"> 
+				<div class="recent-header margin-top margin-bottom">Recently Reviewed</div>
+
+
 				<div id="restaurant-table">
-						<div id="map"></div>
+
+					<table id="review-table" class="uk-table uk-text-left r-table uk-table-striped">
+						<tr>
+							<th>Name</th>
+							<th>Cuisine</th>
+							<th>Recommended</th>
+						</tr>
+
+					</table>
+				</div>
+				</div>
+				<div class="footer">
+					
 				</div>
 			</div>
-		<div class="footer">
-
-
-			
-				<!-- <button class="uk-button uk-button-primary" type="button" id="city">Populate</button> -->
-		</div>	
-		</div>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDti1uIIpl2e51oCM6_AqZYYZWma_wn-2k&callback=initMap"></script>  -->
-		<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit-icons.min.js"></script>		
-		<script type="text/javascript" src="assets/javascript/gmaps.js"></script> 
-		<script type="text/javascript" src="assets/javascript/zomato.js"></script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDti1uIIpl2e51oCM6_AqZYYZWma_wn-2k&callback=initMap"></script> 
+			<div id="map"></div>
+			<script type="text/javascript"
+				src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/js/uikit-icons.min.js"></script>
+			<script type="text/javascript" src="assets/javascript/gmaps.js"></script>
+			<script type="text/javascript" src="assets/javascript/fb.js"></script>
+			<script type="text/javascript" src="assets/javascript/zomato.js"></script>			
+			<script async defer
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDti1uIIpl2e51oCM6_AqZYYZWma_wn-2k&callback=initMap"></script>
 </body>
 
 </html>
