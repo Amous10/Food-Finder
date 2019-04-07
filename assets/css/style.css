@@ -33,12 +33,17 @@ body{
 }
 
 .uk-logo img {
+    margin-top:25px;
     height: 28px;
 }
 
 .margin-top{
     margin-top: 2em;
 }
+.margin-bottom{
+    margin-bottom: 2em;
+}
+
 .recent-header {
     font-size: 1.05em;
     font-weight: 300;
@@ -53,15 +58,27 @@ body{
 }
 
 .r-modal{
-    background-color: rgba(49, 8, 2, 0.8);
+    background-color:rgb(78, 78, 78);
     color: black;
 
 }
 .r-modal-header{
-    background-color: rgba(49, 8, 2, 0.6);
+    background-color:rgb(78, 78, 78);
+}
+
+.r-table{
+
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 #map {
     height: 350px;
     width: 250px;
+  }
+  #FFC {
+      color:rgb(228, 215, 145);
+      text-decoration: underline;
+  }
+  #star{
+      color:green;
   }

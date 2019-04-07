@@ -73,13 +73,16 @@ function setMarkers(map, lat, long) {
     coords: [1, 1, 1, 20, 18, 20, 18, 1],
     type: 'poly'
   };
-      
+    
     var marker = new google.maps.Marker({
       position: {lat: lat, lng: long},
       map: map,
       icon: image,
       shape: shape      
-    });
+    });    
+  
+  
+
 
 }
 
