@@ -90,9 +90,11 @@ $(document).ready(function () {
                 let latitude = r.location.latitude;
                 let longitude = r.location.longitude;
                 let imgsrc = r.thumb;
+                // let imgsrc2 = r.image;
                 let cuisines = r.cuisines;
                 let userRating = r.user_rating.aggregate_rating;
-                let avgCostForTwo = r.average_cost_for_two;                
+                let avgCostForTwo = r.average_cost_for_two;
+                                
                 
                 if (imgsrc === ''){                  
                   imgsrc = defaultImg;
@@ -118,10 +120,11 @@ $(document).ready(function () {
     q = $('#search-city-input').val().trim();
     $('#search-city-input').text('Near:  Search by City');    
     searchCity(q);
+    
   }
 
   function createRestaurantCardDiv(id, name, imgsrc, cuisines, userRating, avgCostForTwo, latitude, longitude) {
-    
+  
     let div = `
     <div>
     <div class="uk-card uk-card-default restaurant-card" data-id="${id}" data-lat="${latitude}" data-long="${longitude}">
@@ -134,6 +137,8 @@ $(document).ready(function () {
       <div class="uk-card-body">
         <h5 class="uk-card-title">${cuisines}</h5>        
         <p>Avg cost for two: \$${avgCostForTwo}</p>
+        <button id= "map-button">Map/More Info</button>
+        
       </div>
     </a>
     </div>
@@ -166,6 +171,9 @@ $(document).ready(function () {
         <!-- -->
         </div>
         <div class="uk-modal-footer uk-text-right">
+        <button style="font-size:24px"><i class="fa fa-thumbs-up"></i></button>
+        &nbsp;
+            <button style="font-size:24px"><i class="fa fa-thumbs-down"></i></button>
             <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
             
         </div>
@@ -173,7 +181,6 @@ $(document).ready(function () {
     </div>
 </div>
     `;
-    
     
 
     return div;
@@ -184,6 +191,7 @@ $(document).ready(function () {
   }
 
   function appendMap() {
+   
     let tmp = $(this).attr('data-id');
     let lat = $(this).attr('data-lat');
     let long = $(this).attr('data-long');
@@ -198,15 +206,11 @@ $(document).ready(function () {
     $('#cuisine-text').text($(this).text());
   }
 
-  function mapModal(){
-    // event.preventDefault();
-    alert(map);
-  }
 
   $(document).on('click', '.cuisine-btn', pickCuisine);
   $(document).on('click', '#search-city-btn', searchZomatoCity);
   $(document).on('click', '#city', populateRecent);
-  $(document).on('click', '.restaurant-card', appendMap);
+  $("#map-button").on('click', appendMap);
   
 
   
