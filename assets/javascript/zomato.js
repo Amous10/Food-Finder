@@ -108,14 +108,9 @@ $(document).ready(function () {
                 let cuisines = r.cuisines;
                 let userRating = r.user_rating.aggregate_rating;
                 let avgCostForTwo = r.average_cost_for_two;
-<<<<<<< HEAD
                                 
                 
                 if (imgsrc === ''){                  
-=======
-
-                if (imgsrc === '') {
->>>>>>> dc259c26a7b702665fd704ff9d44a7a454b44e3a
                   imgsrc = defaultImg;
                 }
 
@@ -147,37 +142,18 @@ $(document).ready(function () {
   }
 
   function createRestaurantCardDiv(id, name, imgsrc, cuisines, userRating, avgCostForTwo, latitude, longitude) {
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> dc259c26a7b702665fd704ff9d44a7a454b44e3a
     let div = `
     <div class="FFC">
     <div class="uk-card uk-card-secondary">
     <div class="header" style="font-family: 'Acme', sans-serif">
     <div class="uk-card uk-width-medium uk-length-medium" data-id="${id}" data-lat="${latitude}" data-long="${longitude}">
     <a href="#modal-sections-${id}" uk-toggle>
-<<<<<<< HEAD
-      <div class="uk-card-media-top">
-        <div class="uk-card-badge uk-label-warning">${userRating}</div>
-          <h3 class="uk-card-title">${name}</h3>
-        <img src="${imgsrc}" alt="${name}">
-      </div>
-      <div class="uk-card-body">
-        <h5 class="uk-card-title">${cuisines}</h5>        
-        <p>Avg cost for two: \$${avgCostForTwo}</p>
-        <button id= "map-button">Map/More Info</button>
-        
-      </div>
-=======
       <div class="uk-card-media-top style="font-family: 'Acme', sans-serif">
        <h1 id="FFC" class="uk-card-title uk-text-center uk-text-bottom" style="font-family: 'Cinzel', serif">${name}</h1>
       <img src="${imgsrc}" alt="${name}">
         <h5 class="uk-card-title" style="font-family: 'Cinzel', serif">${cuisines}</h5>  
         <p style="font-family: 'Cinzel', serif">Avg cost for two: \$${avgCostForTwo}</p>
         <h1 id="FFC" class="uk-icon uk-margin-medium-left" uk-icon="icon: star"style="font-size:18px;">${userRating}</h1>
->>>>>>> dc259c26a7b702665fd704ff9d44a7a454b44e3a
     </a>
     </div>
   </div>
@@ -214,32 +190,20 @@ $(document).ready(function () {
     
         
         <div class="uk-modal-footer uk-text-right">
-<<<<<<< HEAD
-        <button style="font-size:24px"><i class="fa fa-thumbs-up"></i></button>
-        &nbsp;
-            <button style="font-size:24px"><i class="fa fa-thumbs-down"></i></button>
-            <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
-=======
 
             <button class="uk-button uk-button-primary uk-modal-close thumbs-down" data-name="${name}" data-cuisines="${cuisines}" data-id="${id}" type="button">Thumbs Down!</button>
             <button class="uk-button uk-button-primary uk-modal-close thumbs-up" data-name="${name}" data-cuisines="${cuisines}" data-id="${id}" type="button">Thumbs Up!</button>
 
->>>>>>> dc259c26a7b702665fd704ff9d44a7a454b44e3a
             
         </div>
         </div>
 </div>
-<<<<<<< HEAD
-    `;
-    
-=======
 
     
     `;
 
 
 
->>>>>>> dc259c26a7b702665fd704ff9d44a7a454b44e3a
 
     return div;
   }
@@ -324,25 +288,12 @@ $(document).ready(function () {
     $('#cuisine-text').text($(this).text());
   }
 
-<<<<<<< HEAD
-
-  $(document).on('click', '.cuisine-btn', pickCuisine);
-  $(document).on('click', '#search-city-btn', searchZomatoCity);
-  $(document).on('click', '#city', populateRecent);
-  $("#map-button").on('click', appendMap);
   
-=======
-  function mapModal() {
-    // event.preventDefault();
-    alert(map);
-  }
-
   $(document).on('click', '.cuisine-btn', pickCuisine);
   $(document).on('click', '#search-city-btn', searchZomatoCity);
   $(document).on('click', '.thumbs-up', thumbsUp);
   $(document).on('click', '.thumbs-down', thumbsDown);
   $(document).on('click', '.restaurant-card', appendMap);
->>>>>>> dc259c26a7b702665fd704ff9d44a7a454b44e3a
 
 
 
