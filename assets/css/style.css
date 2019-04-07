@@ -33,6 +33,7 @@ body{
 }
 
 .uk-logo img {
+    margin-top:25px;
     height: 28px;
 }
 
@@ -53,15 +54,22 @@ body{
 }
 
 .r-modal{
-    background-color: rgba(49, 8, 2, 0.8);
+    background-color:rgb(78, 78, 78);
     color: black;
 
 }
 .r-modal-header{
-    background-color: rgba(49, 8, 2, 0.6);
+    background-color:rgb(78, 78, 78);
 }
 
 #map {
     height: 350px;
     width: 250px;
+  }
+  #FFC {
+      color:rgb(228, 215, 145);
+      text-decoration: underline;
+  }
+  #star{
+      color:green;
   }
