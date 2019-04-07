@@ -104,11 +104,13 @@ $(document).ready(function () {
                 let latitude = r.location.latitude;
                 let longitude = r.location.longitude;
                 let imgsrc = r.thumb;
+                // let imgsrc2 = r.image;
                 let cuisines = r.cuisines;
                 let userRating = r.user_rating.aggregate_rating;
                 let avgCostForTwo = r.average_cost_for_two;
-
-                if (imgsrc === '') {
+                                
+                
+                if (imgsrc === ''){                  
                   imgsrc = defaultImg;
                 }
 
@@ -136,10 +138,10 @@ $(document).ready(function () {
     // $('#review-table').show();
 
     searchCity(q);
+    
   }
 
   function createRestaurantCardDiv(id, name, imgsrc, cuisines, userRating, avgCostForTwo, latitude, longitude) {
-
     let div = `
     <div class="FFC">
     <div class="uk-card uk-card-secondary">
@@ -271,6 +273,7 @@ $(document).ready(function () {
     indexFB++;
   }
   function appendMap() {
+   
     let tmp = $(this).attr('data-id');
     let lat = $(this).attr('data-lat');
     let long = $(this).attr('data-long');
@@ -285,11 +288,7 @@ $(document).ready(function () {
     $('#cuisine-text').text($(this).text());
   }
 
-  function mapModal() {
-    // event.preventDefault();
-    alert(map);
-  }
-
+  
   $(document).on('click', '.cuisine-btn', pickCuisine);
   $(document).on('click', '#search-city-btn', searchZomatoCity);
   $(document).on('click', '.thumbs-up', thumbsUp);
