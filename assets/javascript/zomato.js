@@ -145,14 +145,14 @@ $(document).ready(function () {
     let div = `
     <div class="FFC">
     <div class="uk-card uk-card-secondary">
-    <div class="header" style="font-family: 'Acme', sans-serif">
+    <div class="header" style="font-family: 'Roboto', sans-serif">
     <div class="uk-card uk-width-medium uk-length-medium" data-id="${id}" data-lat="${latitude}" data-long="${longitude}">
     <a href="#modal-sections-${id}" uk-toggle>
-      <div class="uk-card-media-top style="font-family: 'Acme', sans-serif">
-       <h1 id="FFC" class="uk-card-title uk-text-center uk-text-bottom" style="font-family: 'Cinzel', serif">${name}</h1>
+      <div class="uk-card-media-top style="font-family: 'Roboto', sans-serif">
+       <h1 id="FFC" class="uk-card-title uk-text-center uk-text-bottom" style="font-family: 'Roboto', sans-serif">${name}</h1>
       <img src="${imgsrc}" alt="${name}">
-        <h5 class="uk-card-title" style="font-family: 'Cinzel', serif">${cuisines}</h5>  
-        <p style="font-family: 'Cinzel', serif">Avg cost for two: \$${avgCostForTwo}</p>
+        <h5 class="uk-card-title" style="font-family: 'Roboto', sans-serif">${cuisines}</h5>  
+        <p style="font-family: 'Roboto', sans-serif">Avg cost for two: \$${avgCostForTwo}</p>
         <h1 id="FFC" class="uk-icon uk-margin-medium-left" uk-icon="icon: star"style="font-size:18px;">${userRating}</h1>
     </a>
     </div>
@@ -166,7 +166,7 @@ $(document).ready(function () {
     <div class="r-modal uk-modal-dialog">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-modal-header r-modal-header">
-            <h1 class="uk-modal-title uk-text-center uk-text-bottom" Style="font-size:36px; font-family: 'Permanent Marker', cursive">${name}</h1>
+            <h1 class="uk-modal-title uk-text-center uk-text-bottom" Style="font-size:36px; font-family: 'Roboto', sans-serif;">${name}</h1>
         </div>
         <div class="uk-modal-body">
         <!-- -->    
@@ -175,12 +175,12 @@ $(document).ready(function () {
     <div class="uk-card uk-card-default">    
       <div class="uk-card-media-top">
         
-      <h6 class="uk-card-title uk-text-left" style="font-size:18px; font-family: 'Cinzel', serif;">${name}</h6>
+      <h6 class="uk-card-title uk-text-left" style="font-size:18px; font-family: 'Roboto', sans-serif;">${name}</h6>
         <img src="${imgsrc}" alt="${name}">
       </div>
       <div class="uk-card-body">
-        <h5 class="uk-card-title uk-text-left" style="font-family: 'Hanalei Fill', cursive;">${cuisines}</h5>        
-        <p class="uk-text-left" style="font-family: 'Hanalei Fill', cursive;">Avg cost for two: \$${avgCostForTwo}</p>
+        <h5 class="uk-card-title uk-text-left" style="font-family: 'Roboto', sans-serif;">${cuisines}</h5>        
+        <p class="uk-text-left" style="font-family: 'Roboto', sans-serif;">Avg cost for two: \$${avgCostForTwo}</p>
         <h1 id="star" class="uk-icon uk-margin-medium-left" uk-icon="icon: star"style="font-size:18px;">${userRating}</h1>
       </div>    
     </div>
