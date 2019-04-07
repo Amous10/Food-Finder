@@ -15,6 +15,7 @@ $(document).ready(function () {
   // var loading = false;
   $('#spinner').hide();
   $('#map').hide();
+  $('#recent-view').hide();
   const defaultImg = 'assets/images/food_thumb.jpg';
   const baseURL = 'https://developers.zomato.com/api/v2.1/';
   let q = '';
@@ -24,7 +25,7 @@ $(document).ready(function () {
     'user-key': ZapiKey,
     'Accept': 'application/json'
   };
-
+  
   // curl -X GET --header "Accept: application/json" --header "user-key: 100f8418181c52c8e7bd4b83d06f6750" "https://developers.zomato.com/api/v2.1/cities?q=phoenix"
   function searchCity(query) {
     //TODO Add a loading feature to accommodate chained ajax calls.
@@ -70,6 +71,7 @@ $(document).ready(function () {
             // $('#results-view').html(JSON.stringify(response));          
             // loading = false;
             $('#spinner').hide();
+            $('#recent-view').show();
             //MAKE MAGIC HAPPEN:
             let resultsFound = secondResponse.results_found;
             $('#results-view').html('');
@@ -117,8 +119,9 @@ $(document).ready(function () {
     event.preventDefault();
     q = $('#search-city-input').val().trim();
     // $('#search-city-input').attr('data-uk-clear');    
-    $('#search-city-input').html('Near:  Search by City');    
-    
+    $('#search-city-input').val('');
+    $('#cuisine-text').text('Cuisines'); 
+    // $('#review-table').show();
     searchCity(q);
   }
 
@@ -168,7 +171,8 @@ $(document).ready(function () {
         <!-- -->
         </div>
         <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+            <button class="uk-button uk-button-primary uk-modal-close thumbs-down" data-name="${name}" data-cuisines="${cuisines}" data-id="${id}" type="button">Thumbs Down!</button>
+            <button class="uk-button uk-button-primary uk-modal-close thumbs-up" data-name="${name}" data-cuisines="${cuisines}" data-id="${id}" type="button">Thumbs Up!</button>
             
         </div>
     
@@ -181,10 +185,67 @@ $(document).ready(function () {
     return div;
   }
   
-  function populateRecent() {
-    console.log("populate");
+  function thumbsUp() {            
+    let name = $(this).attr('data-name');
+    let cuisines = $(this).attr('data-cuisines');
+    let id = $(this).attr('data-id');
+    let thumb = 'Thumbs Up!';
+    if ((indexFB === null)||(indexFB===0)||(indexFB === 7)) {indexFB=1;}
+    //There are 6 displayed restaurants in the reviews, index keeps position to update at that position.
+        
+    let data = {
+      name: name,
+      id: id,
+      cuisines: cuisines,
+      rated: thumb,   
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    };
+    updateFBReviews(data);
+    
   }
+  function thumbsDown() {    
+    let name = $(this).attr('data-name');
+    let cuisines = $(this).attr('data-cuisines');
+    let id = $(this).attr('data-id');
+    let thumb = 'Thumbs Down!';
 
+    if ((indexFB === null)||(indexFB===0)||(indexFB >= 7)) {indexFB=1;}
+    //There are 6 displayed restaurants in the reviews, index keeps position to update at that position.
+        
+    let data = {
+      name: name,
+      id: id,
+      cuisines: cuisines,
+      rated: thumb,   
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    };
+    updateFBReviews(data);
+  }
+  function updateFBReviews(data){
+    // restaurant`${indexFB}`.set(data); 
+    //above doesn't work. must be better way than what I am about to do.
+    if(indexFB === 1){
+      restaurant1.set(data);   
+    }
+    else if(indexFB === 2){
+      restaurant2.set(data);   
+    }
+    else if(indexFB === 3){
+      restaurant3.set(data);   
+    }
+    else if(indexFB === 4){
+      restaurant4.set(data);   
+    }
+    else if(indexFB === 5){
+      restaurant5.set(data);   
+    }
+    else if(indexFB === 6){
+      restaurant6.set(data);   
+    }
+    else{restaurant6.set(data);}
+    FBDBindexRef.set(indexFB);
+    indexFB++;
+  }
   function appendMap() {
     let tmp = $(this).attr('data-id');
     let lat = $(this).attr('data-lat');
@@ -207,7 +268,8 @@ $(document).ready(function () {
 
   $(document).on('click', '.cuisine-btn', pickCuisine);
   $(document).on('click', '#search-city-btn', searchZomatoCity);
-  $(document).on('click', '#city', populateRecent);
+  $(document).on('click', '.thumbs-up', thumbsUp);
+  $(document).on('click', '.thumbs-down', thumbsDown);
   $(document).on('click', '.restaurant-card', appendMap);
   
 
