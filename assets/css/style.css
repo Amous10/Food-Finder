@@ -7,7 +7,25 @@ body{
     font-family: 'Roboto', sans-serif;
 
 }
+#recent-view{
 
+    background-color: #7d7268;
+    color: black;
+}
+#restaurant-table{
+    padding: 5px;
+    background-color: #7d7268;
+    color:black;
+    font-size: 25px;
+    margin:0;
+}
+.uk-table th{
+    font-size: 20px;
+    text-decoration: underline;
+}
+*+.uk-table{
+    margin-top:5px;
+}
 #city-search.uk-search{
     background-color: rgba(255, 255, 255, 0.3);
     color: black;
@@ -50,13 +68,13 @@ body{
     margin-bottom: 2em;
 }
 
-.recent-header {
+/* .recent-header {
     font-size: 1.05em;
     font-weight: 300;
     color: #310802;    
     border: solid 1px white;
     background-color: rgba(255, 255, 255, 0.6);
-}
+} */
 /* TODO STYLE THE CARDS */
 .restaurant-card {
     cursor: pointer;
@@ -87,9 +105,9 @@ body{
     max-width: 450px;
     border: solid 1px #92DD19;
 }
-.footer{
+/* .footer{ */
     /* border: solid 1px #92DD19; */
-}
+/* } */
 
 #map {
     height: 350px;
@@ -99,3 +117,5 @@ body{
   #star{
       color:green;
   }
+  
+ 
