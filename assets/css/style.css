@@ -12,7 +12,9 @@ body{
     background-color: rgba(255, 255, 255, 0.3);
     color: black;
 }
-
+#search-city-input{
+    min-width: 50px;
+}
 #search-btn{
     color: black;
     background-color: rgba(35, 122, 32, 0.8);
@@ -59,6 +61,11 @@ body{
 .restaurant-card {
     cursor: pointer;
     border: solid 1px #005312;
+    text-decoration: none;
+    color: black;
+}
+.card-body{
+   color: black; 
 }
 
 .r-modal{
@@ -88,10 +95,7 @@ body{
     height: 350px;
     width: 250px;
   }
-  #FFC {
-      color:rgb(228, 215, 145);
-      
-  }
+  
   #star{
       color:green;
   }

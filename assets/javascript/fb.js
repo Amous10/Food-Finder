@@ -1,4 +1,4 @@
-var indexFB=0;
+// var indexFB=0;
 $(document).ready(function() {
   // Initialize Firebase
   var config = {
@@ -13,7 +13,7 @@ $(document).ready(function() {
 
   let database = firebase.database();
 
-  var restaurants = database.ref("restaurants");
+  restaurants = database.ref("restaurants");
   restaurant1 = database.ref("restaurants/restaurant1");
   restaurant2 = database.ref("restaurants/restaurant2");
   restaurant3 = database.ref("restaurants/restaurant3");
@@ -21,7 +21,7 @@ $(document).ready(function() {
   restaurant5 = database.ref("restaurants/restaurant5");
   restaurant6 = database.ref("restaurants/restaurant6");
   FBDBindexRef = database.ref("index");
-  
+  indexFB=0;
   //  Code for handling the push
   // database.ref().push({
   //   name: name,
@@ -40,7 +40,7 @@ $(document).ready(function() {
       let cuisines = r.cuisines;
       let rated = r.rated;
       
-      var newRow = $("<tr>").append(
+      let newRow = $("<tr>").append(
         $("<td>").text(name),
         $("<td>").text(cuisines),
         $("<td>").text(rated)
