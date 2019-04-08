@@ -201,6 +201,10 @@ $(document).ready(function() {
         <!-- -->
         </div>
         <div class="uk-modal-footer uk-text-right">
+
+
+            <p>RATE THIS RESTAURANT!</p>
+
             <button class="uk-button uk-button-primary uk-modal-close thumbs-down" data-name="${name}" data-cuisines="${cuisines}" data-id="${id}" type="button"><i class="fa fa-thumbs-down"></i>  Thumbs Down!</button>
             <button class="uk-button uk-button-primary uk-modal-close thumbs-up" data-name="${name}" data-cuisines="${cuisines}" data-id="${id}" type="button"><i class="fa fa-thumbs-up"></i>  Thumbs Up!</button>
         </div>
