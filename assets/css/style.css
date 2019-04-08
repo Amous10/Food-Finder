@@ -1,5 +1,5 @@
 body{
-    background: url(../images/44423-restos.jpg) no-repeat center center fixed; 
+    background: url(../images/44423-restos.jpg) no-repeat center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -27,7 +27,10 @@ body{
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
 }
-
+.heading-text {
+    font-weight: 900;
+    color:rgb(235, 221, 141);
+}
 .lead {
     font-size: 1.175em;
     font-weight: 300;
@@ -70,6 +73,15 @@ body{
 .r-table{
 
     background-color: rgba(255, 255, 255, 0.2);
+}
+.logo { 
+
+    max-height: 150px;
+    max-width: 450px;
+    border: solid 1px #92DD19;
+}
+.footer{
+    /* border: solid 1px #92DD19; */
 }
 
 #map {
