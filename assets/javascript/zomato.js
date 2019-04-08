@@ -125,9 +125,10 @@ $(document).ready(function() {
             );
 
             $("#results-view").prepend(addDiv);
+            
           }
         } else {
-          //TODO result found is ZERO, do something.
+          //TODO result found is ZERO, do something.    
         }
       });
     });
@@ -139,8 +140,10 @@ $(document).ready(function() {
     q = $("#search-city-input")
       .val()
       .trim();
+// console.log('before');
 
     searchCity(q);
+// console.log('after');
 
     $("#search-city-input").val("");
     $("#cuisine-text").text("Cuisines");
@@ -166,8 +169,8 @@ $(document).ready(function() {
                 <img src="${imgsrc}" alt="${name}">
             </div>
             <div class="card-body">
-                <h5 class="uk-card-title uk-text-left" style="font-family: 'Roboto', sans-serif;">${cuisines}</h5>        
-        <p class="uk-text-left" style="font-family: 'Roboto', sans-serif;">Avg cost for two: \$${avgCostForTwo}</p>
+                <h5 class="uk-card-title uk-text-center" style="font-family: 'Roboto', sans-serif;">${cuisines}</h5>        
+        <p class="uk-text-center" style="font-family: 'Roboto', sans-serif;">Avg cost for two: \$${avgCostForTwo}</p>
         <h1 id="star" class="uk-icon uk-margin-medium-left" uk-icon="icon: star"style="font-size:18px;">${userRating}</h1>
             </div>
         </a>
@@ -299,7 +302,7 @@ $(document).ready(function() {
 
 
   $(document).on("click", ".cuisine-btn", pickCuisine);
-  $(document).on("click", "#search-city-btn", searchZomatoCity);
+  $('#search-city-btn').on("click", searchZomatoCity);
   $(document).on("click", ".thumbs-up", thumbsUp);
   $(document).on("click", ".thumbs-down", thumbsDown);
   $(document).on("click", ".restaurant-card", appendMap);
