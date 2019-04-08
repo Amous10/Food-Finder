@@ -93,6 +93,7 @@ $(document).ready(function() {
           //   cardsQuantity = resultsFound;
           // }
 
+
           // Looping through restaurants
           for (const restaurant of secondResponse.restaurants) {
             // variables for the query responses we want
@@ -140,8 +141,10 @@ $(document).ready(function() {
       .trim();
 
     searchCity(q);
+
     $("#search-city-input").val("");
     $("#cuisine-text").text("Cuisines");
+
   }
 
   function createRestaurantCardDiv(
@@ -199,12 +202,14 @@ $(document).ready(function() {
         </div>
     
         
+
         <div class="uk-modal-footer uk-text-right">
 
             <button class="uk-button uk-button-primary uk-modal-close thumbs-down" data-name="${name}" data-cuisines="${cuisines}" data-id="${id}" type="button"><i class="fa fa-thumbs-down"></i>  Thumbs Down!</button>
             <button class="uk-button uk-button-primary uk-modal-close thumbs-up" data-name="${name}" data-cuisines="${cuisines}" data-id="${id}" type="button"><i class="fa fa-thumbs-up"></i>  Thumbs Up!</button>
 
             
+
         </div>
         </div>
 </div>
@@ -214,12 +219,14 @@ $(document).ready(function() {
     return div;
   }
 
+
   function thumbsUp() {
     let name = $(this).attr("data-name");
     let cuisines = $(this).attr("data-cuisines");
     let id = $(this).attr("data-id");
     let thumb = "Thumbs Up!";
     if (indexFB === null || indexFB === 0 || indexFB === 7) {
+
       indexFB = 1;
     }
     //There are 6 displayed restaurants in the reviews, index keeps position to update at that position.
@@ -232,6 +239,7 @@ $(document).ready(function() {
       dateAdded: firebase.database.ServerValue.TIMESTAMP
     };
     updateFBReviews(data);
+
   }
   function thumbsDown() {
     let name = $(this).attr("data-name");
@@ -240,6 +248,7 @@ $(document).ready(function() {
     let thumb = "Thumbs Down!";
 
     if (indexFB === null || indexFB === 0 || indexFB >= 7) {
+
       indexFB = 1;
     }
     //There are 6 displayed restaurants in the reviews, index keeps position to update at that position.
@@ -253,8 +262,10 @@ $(document).ready(function() {
     };
     // updateFBReviews(data);
   }
+
   function updateFBReviews(data) {
     // restaurant`${indexFB}`.set(data);
+
     //above doesn't work. must be better way than what I am about to do.
     if (indexFB === 1) {
       restaurant1.set(data);
@@ -274,10 +285,13 @@ $(document).ready(function() {
     FBDBindexRef.set(indexFB);
     indexFB++;
   }
+
   function appendMap() {
+
     let tmp = $(this).attr("data-id");
     let lat = $(this).attr("data-lat");
     let long = $(this).attr("data-long");
+
     moveToLocation(lat, long);
     $("#map").show();
     $("#map").appendTo($(`#map${tmp}`));
@@ -287,9 +301,11 @@ $(document).ready(function() {
     $("#cuisine-text").text($(this).text());
   }
 
+
   $(document).on("click", ".cuisine-btn", pickCuisine);
   $(document).on("click", "#search-city-btn", searchZomatoCity);
   $(document).on("click", ".thumbs-up", thumbsUp);
   $(document).on("click", ".thumbs-down", thumbsDown);
   $(document).on("click", ".restaurant-card", appendMap);
 });
+
