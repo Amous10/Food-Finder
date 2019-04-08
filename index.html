@@ -4,14 +4,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Cover - UIkit 3 KickOff</title>
+	<title>Food Finder</title>
 	<link rel="icon" href="img/favicon.ico">
 
 	<!-- CSS FILES -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="./assets/css/style.css">
-	<link rel="stylesheet" href="./assets/css/reset.css">
+	<!-- <link rel="stylesheet" href="./assets/css/reset.css"> -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
@@ -24,10 +24,11 @@
 		<div class="uk-position-top">
 			<div class="uk-container uk-container-small">
 				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-					<div class="uk-navbar-left">
-						<div class="uk-navbar-item uk-animation-scale-up">
-							<img src="./assets/images/6Beacon Logo.png" style="height:60px; font-weight: 700;" alt="Logo" href="#">
-						</div>
+					<div class="uk-navbar-left margin-top">
+						<!-- <div class="uk-navbar-item uk-animation-scale-up">
+							<img src="./assets/images/6Beacon Logo.png" alt="Logo" href="#">
+						</div> -->
+						<div class="uk-animation-scale-up"><img class="logo" src="./assets/images/ff.png" alt="Logo" href="#"></div>
 					</div>
 					<div class="uk-navbar-right">
 						<ul class="uk-navbar-nav">
@@ -42,7 +43,7 @@
 
 		<div class="uk-container uk-container-small uk-flex-auto uk-text-center"
 			data-uk-scrollspy="target: > .animate; cls: uk-animation-slide-bottom-small uk-invisible; delay: 300">
-			<h1 class="uk-heading-primary animate uk-invisible" style="font-weight: 900;color:rgb(235, 221, 141)">Restaurant Finder</h1>
+			<h1 class="uk-heading-primary animate uk-invisible heading-text">Restaurant Finder</h1>
 
 			<button class="uk-button uk-button-default" id="cuisine-text" type="button">Cuisines</button>
 			<div uk-dropdown="pos: bottom-justify">
@@ -85,7 +86,7 @@
 				</div>
 				</div>
 				<div class="footer">
-					
+					<!-- <img src="./assets/images/food-finder.png" alt="Logo" href="#"> -->
 				</div>
 			</div>
 			<div id="map"></div>

@@ -131,13 +131,10 @@ $(document).ready(function () {
     // Preventing the button from trying to submit the form
     event.preventDefault();
     q = $('#search-city-input').val().trim();
-    // $('#search-city-input').attr('data-uk-clear');    
-
+    
+    searchCity(q);
     $('#search-city-input').val('');
     $('#cuisine-text').text('Cuisines'); 
-    // $('#review-table').show();
-
-    searchCity(q);
     
   }
 
